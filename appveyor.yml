@@ -5,9 +5,13 @@ build:
 branches:
   only:
   - master
+install:
+  - dotnet tool install -g dotnet-stryker
 init:
   # Good practise, because Windows line endings are different from Unix/Linux ones
   - cmd: git config --global core.autocrlf true
 before_build:
   - cmd: dotnet --version
   - cmd: dotnet restore ./eroller/eroller.sln
+after_test:
+  - cmd: dotnet stryker
