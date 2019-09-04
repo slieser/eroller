@@ -1,5 +1,7 @@
 version: '1.0.{build}'
-image: Ubuntu
+image:
+  - Visual Studio 2019
+  - Ubuntu
 build:
   verbosity: minimal
 branches:
@@ -9,10 +11,10 @@ install:
   - dotnet tool install -g dotnet-stryker
 init:
   # Good practise, because Windows line endings are different from Unix/Linux ones
-  - cmd: git config --global core.autocrlf true
+  - git config --global core.autocrlf true
 before_build:
-  - cmd: dotnet --version
-  - cmd: dotnet restore ./eroller/eroller.sln
+  - dotnet --version
+  - dotnet restore ./eroller/eroller.sln
 after_test:
-  - cmd: cd ./eroller/eroller.tests
-  - cmd: dotnet stryker
+  - cd ./eroller/eroller.tests
+  - dotnet stryker
