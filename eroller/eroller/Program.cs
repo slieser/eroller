@@ -1,11 +1,11 @@
-﻿using System;
+﻿using eroller.web;
 
 namespace eroller
 {
     public class Program
     {
         public static void Main(string[] args) {
-            Console.WriteLine("Hello World!");
+            new ERollerSelfHosting().Run();
         }
     }
 }
