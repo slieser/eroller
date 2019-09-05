@@ -4,6 +4,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller", "eroller\eroller.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.tests", "eroller.tests\eroller.tests.csproj", "{544379E8-D1A9-480B-BB10-FB7725040722}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.web", "eroller.web\eroller.web.csproj", "{2B784D25-68C8-41EA-A67B-8B6DD614ABC7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.logic", "eroller.logic\eroller.logic.csproj", "{7DFD4ADA-54B4-4148-A746-D9FCB4DC8794}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.web.tests", "eroller.web.tests\eroller.web.tests.csproj", "{2FE67962-B000-4A2A-B19C-5266D5D5D97F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +24,17 @@ Global
 		{544379E8-D1A9-480B-BB10-FB7725040722}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{544379E8-D1A9-480B-BB10-FB7725040722}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{544379E8-D1A9-480B-BB10-FB7725040722}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B784D25-68C8-41EA-A67B-8B6DD614ABC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B784D25-68C8-41EA-A67B-8B6DD614ABC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B784D25-68C8-41EA-A67B-8B6DD614ABC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B784D25-68C8-41EA-A67B-8B6DD614ABC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DFD4ADA-54B4-4148-A746-D9FCB4DC8794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DFD4ADA-54B4-4148-A746-D9FCB4DC8794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DFD4ADA-54B4-4148-A746-D9FCB4DC8794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DFD4ADA-54B4-4148-A746-D9FCB4DC8794}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
