@@ -29,6 +29,17 @@ namespace eroller.web.tests
             Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             StringAssert.StartsWith("{\"id\":", result.Body.AsString());
         }
+        
+        [Test]
+        public async Task Approve_with_correct_code() {
+            var result = await _browser.Get("/approve/0815", with => {
+                with.HttpRequest();
+                with.Query("code", "1234");
+            });
+        
+            Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
+            StringAssert.StartsWith("{\"id\":", result.Body.AsString());
+        }
 
     }
 }
