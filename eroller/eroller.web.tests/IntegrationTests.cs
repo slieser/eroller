@@ -13,7 +13,8 @@ namespace eroller.web.tests
         [SetUp]
         public void Setup() {
             var bootstrapper = new ConfigurableBootstrapper(with => {
-                with.Module(new RegisterModule(new Interactors()));
+                with.Module(new RegisterModule(
+                    new Interactors(() => "1234", () => "A1B2C3")));
             });
             _browser = new Browser(bootstrapper);
         }
@@ -27,18 +28,23 @@ namespace eroller.web.tests
             });
         
             Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            StringAssert.StartsWith("{\"id\":", result.Body.AsString());
+            Assert.That(result.Body.AsString(), Is.EqualTo("{\"id\":\"1234\"}"));
         }
         
         [Test]
         public async Task Approve_with_correct_code() {
-            var result = await _browser.Get("/approve/0815", with => {
+            await _browser.Get("/register", with => {
                 with.HttpRequest();
-                with.Query("code", "1234");
+                with.Query("name", "Stefan Lieser");
+                with.Query("phone", "123456578");
+            });
+            var result = await _browser.Get("/approve/1234", with => {
+                with.HttpRequest();
+                with.Query("code", "A1B2C3");
             });
         
             Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
-            StringAssert.StartsWith("{\"id\":", result.Body.AsString());
+            Assert.That(result.Body.AsString(), Is.EqualTo("{\"id\":\"1234\"}"));
         }
     }
 }
