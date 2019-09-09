@@ -6,17 +6,14 @@ namespace eroller.logic.provider
     public class RegistrationProvider
     {
         private readonly Func<string> _newId;
-        private readonly Func<string> _newCode;
         private readonly List<Customer> _customers = new List<Customer>();
 
-        public RegistrationProvider(Func<string> newId, Func<string> newCode) {
+        public RegistrationProvider(Func<string> newId) {
             _newId = newId;
-            _newCode = newCode;
         }
 
-        public string Add(string name, string phone) {
+        public string Add(string name, string phone, string code) {
             var id = _newId();
-            var code = _newCode();
             var newCustomer = new Customer {
                 Id = id,
                 Name = name,

@@ -6,18 +6,23 @@ namespace eroller.logic
 {
     public class Interactors
     {
+        private readonly Func<string> _newCode;
         private readonly RegistrationProvider _registrationProvider;
+        private readonly SmsProvider _smsProvider = new SmsProvider();
 
         public Interactors()
             : this(Guid.NewGuid().ToString, RandomStringId.New) {
         }
 
         internal Interactors(Func<string> newId, Func<string> newCode) {
-            _registrationProvider = new RegistrationProvider(newId, newCode);
+            _newCode = newCode;
+            _registrationProvider = new RegistrationProvider(newId);
         }
 
         public Result Register(string name, string phone) {
-            var id = _registrationProvider.Add(name, phone);
+            var code = _newCode();
+            var id = _registrationProvider.Add(name, phone, code);
+            _smsProvider.SendCode(phone, code);
             return new OkResult {Id = id};
         }
 
