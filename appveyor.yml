@@ -21,9 +21,9 @@ after_test:
   - cd ../..
 
   - cd ./eroller/eroller.web.tests
-  - dotnet stryker
+  - dotnet stryker --project-file=eroller.web.csproj
   - cd ../..
 
   - cd ./eroller/eroller.logic.tests
-  - dotnet stryker
+  - dotnet stryker --project-file=eroller.logic.csproj
   - cd ../..
