@@ -18,7 +18,12 @@ before_build:
 after_test:
   - cd ./eroller/eroller.tests
   - dotnet stryker
+  - cd ../..
+
   - cd ./eroller/eroller.web.tests
   - dotnet stryker
+  - cd ../..
+
   - cd ./eroller/eroller.logic.tests
   - dotnet stryker
+  - cd ../..
