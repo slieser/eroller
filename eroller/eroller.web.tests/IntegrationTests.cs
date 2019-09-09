@@ -40,6 +40,5 @@ namespace eroller.web.tests
             Assert.That(result.StatusCode, Is.EqualTo(HttpStatusCode.OK));
             StringAssert.StartsWith("{\"id\":", result.Body.AsString());
         }
-
     }
 }

@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.logic", "eroller.lo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.web.tests", "eroller.web.tests\eroller.web.tests.csproj", "{2FE67962-B000-4A2A-B19C-5266D5D5D97F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eroller.logic.tests", "eroller.logic.tests\eroller.logic.tests.csproj", "{E1A628A7-AC94-45B5-97B6-66AD1B961C0A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FE67962-B000-4A2A-B19C-5266D5D5D97F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1A628A7-AC94-45B5-97B6-66AD1B961C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1A628A7-AC94-45B5-97B6-66AD1B961C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1A628A7-AC94-45B5-97B6-66AD1B961C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1A628A7-AC94-45B5-97B6-66AD1B961C0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
