@@ -33,5 +33,18 @@ namespace eroller.logic.provider
             var customer = Get(id);
             customer.Status = Status.Approved;
         }
+
+        public void Checkin(string customerId, string rollerId) {
+            var customer = Get(customerId);
+            customer.CheckedInRollerId = rollerId;
+        }
+
+        public void Checkout(string customerId, string rollerId) {
+            var customer = Get(customerId);
+            if (customer.CheckedInRollerId != rollerId) {
+                throw new ArgumentOutOfRangeException("customer is not checked in into this roller");
+            }
+            customer.CheckedInRollerId = null;
+        }
     }
 }

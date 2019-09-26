@@ -1,3 +1,5 @@
+using System;
+
 namespace eroller.logic.provider
 {
     public class Roller
@@ -5,5 +7,7 @@ namespace eroller.logic.provider
         public string CustomerId { get; set; }
         
         public string Id { get; set; }
+
+        public DateTime CheckinTime { get; set; }
     }
 }

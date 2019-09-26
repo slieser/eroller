@@ -14,6 +14,14 @@ namespace eroller.web
                 var json = FormatterExtensions.AsJson<Result>(Response, result);
                 return json;
             });
+ 
+            Get("/checkout/{id}", context => {
+                var id = context.id;
+                var rollerId = Request.Query["rollerid"];
+                var result = interactors.Checkout(id, rollerId);
+                var json = FormatterExtensions.AsJson<Result>(Response, result);
+                return json;
+            });
         }
     }
 }

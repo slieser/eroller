@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using eroller.logic;
 using Nancy;
@@ -14,7 +15,7 @@ namespace eroller.web.tests
         public void Setup() {
             var bootstrapper = new ConfigurableBootstrapper(with => {
                 with.Module(new RegisterModule(
-                    new Interactors(() => "1234", () => "A1B2C3")));
+                    new Interactors(() => "1234", () => "A1B2C3", () => new DateTime())));
             });
             _browser = new Browser(bootstrapper);
         }
