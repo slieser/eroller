@@ -11,5 +11,7 @@ namespace eroller.logic.provider
         public Status Status { get; set; }
 
         public string Code { get; set; }
+        
+        public string CheckedInRollerId { get; set; }
     }
 }

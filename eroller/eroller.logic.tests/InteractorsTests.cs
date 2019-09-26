@@ -33,11 +33,43 @@ namespace eroller.logic.tests
         }
 
         [Test]
-        public void Approve_with_correct_code_returns_the_id() {
+        public void Approve_with_correct_code_and_id_returns_the_id() {
             _sut.Register("name", "phone");
             var result = _sut.Approve("A1B2C3", "1234");
             Assert.That(result, Is.TypeOf<OkResult>());
             Assert.That(((OkResult)result).Id, Is.EqualTo("1234"));
+        }
+
+        [Test]
+        public void Approved_customer_can_checkin_to_free_Roller() {
+            _sut.Register("name", "phone");
+            _sut.Approve("A1B2C3", "1234");
+            var result = _sut.Checkin("1234", "abcd");
+            Assert.That(result, Is.TypeOf<OkResult>());
+            Assert.That(((OkResult)result).Id, Is.EqualTo("1234"));
+        }
+
+        [Test]
+        public void Registered_customer_cant_checkin_to_free_Roller() {
+            _sut.Register("name", "phone");
+            var result = _sut.Checkin("1234", "abcd");
+            Assert.That(result, Is.TypeOf<ErrorCantCheckin>());
+        }
+
+        [Test]
+        public void Approved_customer_cant_checkin_to_checkin_Roller() {
+            _sut.Register("name", "phone");
+            _sut.Approve("A1B2C3", "1234");
+            _sut.Checkin("1234", "abcd");
+            var result = _sut.Checkin("1234", "abcd");
+            Assert.That(result, Is.TypeOf<ErrorCantCheckin>());
+        }
+        
+        [Test]
+        public void Unknown_customer_cant_checkin_to_Roller() {
+            _sut.Checkin("1234", "abcd");
+            var result = _sut.Checkin("1234", "abcd");
+            Assert.That(result, Is.TypeOf<ErrorCantCheckin>());
         }
     }
 }

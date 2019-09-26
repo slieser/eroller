@@ -10,7 +10,6 @@ branches:
 install:
   - dotnet tool install -g dotnet-stryker
 init:
-  # Good practise, because Windows line endings are different from Unix/Linux ones
   - git config --global core.autocrlf true
 before_build:
   - dotnet --version
