@@ -64,8 +64,16 @@ namespace eroller.logic
             return new ErrorCantCheckout();
         }
 
+        private bool CanCheckin(Customer customer) {
+            return customer != null && customer.Status == Status.Approved && customer.CheckedInRollerId == null;
+        }
+
         private bool CanCheckin(Roller roller) {
             return roller != null && roller.CustomerId == null;
+        }
+
+        private bool CanCheckout(Customer customer) {
+            return customer?.CheckedInRollerId != null;
         }
 
         private bool CanCheckout(Roller roller) {
@@ -74,14 +82,6 @@ namespace eroller.logic
 
         private static bool CanApprove(string code, Customer customer) {
             return customer != null && customer.Status == Status.Registered && customer.Code == code;
-        }
-
-        private bool CanCheckin(Customer customer) {
-            return customer != null && customer.Status == Status.Approved && customer.CheckedInRollerId == null;
-        }
-
-        private bool CanCheckout(Customer customer) {
-            return customer?.CheckedInRollerId != null;
         }
     }
 }

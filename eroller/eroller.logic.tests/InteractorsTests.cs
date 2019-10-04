@@ -93,7 +93,7 @@ namespace eroller.logic.tests
         
         
         [Test]
-        public void Approved_customer_can_checkout_from_checkin_Roller() {
+        public void Approved_customer_can_checkout_from_checked_in_Roller() {
             _sut.Register("name", "phone");
             _sut.Approve("A1B2C3", "1234");
             _sut.Checkin("1234", "abcd");
@@ -102,6 +102,5 @@ namespace eroller.logic.tests
             Assert.That(((CheckoutResult)result).Id, Is.EqualTo("1234"));
             Assert.That(((CheckoutResult)result).Duration, Is.EqualTo(new TimeSpan(0, 0, 5, 0)));
         }
-
     }
 }
